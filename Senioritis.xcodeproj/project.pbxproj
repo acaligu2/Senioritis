@@ -1,0 +1,603 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		920DCC47226BDAF900395329 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920DCC46226BDAF900395329 /* AppDelegate.swift */; };
+		920DCC49226BDAF900395329 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 920DCC48226BDAF900395329 /* GameScene.sks */; };
+		920DCC4B226BDAF900395329 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 920DCC4A226BDAF900395329 /* Actions.sks */; };
+		920DCC4D226BDAF900395329 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920DCC4C226BDAF900395329 /* GameScene.swift */; };
+		920DCC4F226BDAF900395329 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920DCC4E226BDAF900395329 /* GameViewController.swift */; };
+		920DCC52226BDAF900395329 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 920DCC50226BDAF900395329 /* Main.storyboard */; };
+		920DCC54226BDAFB00395329 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 920DCC53226BDAFB00395329 /* Assets.xcassets */; };
+		920DCC57226BDAFB00395329 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 920DCC55226BDAFB00395329 /* LaunchScreen.storyboard */; };
+		920DCC62226BDAFB00395329 /* SenioritisTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920DCC61226BDAFB00395329 /* SenioritisTests.swift */; };
+		920DCC6D226BDAFB00395329 /* SenioritisUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920DCC6C226BDAFB00395329 /* SenioritisUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		920DCC5E226BDAFB00395329 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 920DCC3B226BDAF900395329 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 920DCC42226BDAF900395329;
+			remoteInfo = Senioritis;
+		};
+		920DCC69226BDAFB00395329 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 920DCC3B226BDAF900395329 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 920DCC42226BDAF900395329;
+			remoteInfo = Senioritis;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		920DCC43226BDAF900395329 /* Senioritis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Senioritis.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		920DCC46226BDAF900395329 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		920DCC48226BDAF900395329 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
+		920DCC4A226BDAF900395329 /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
+		920DCC4C226BDAF900395329 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		920DCC4E226BDAF900395329 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		920DCC51226BDAF900395329 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		920DCC53226BDAFB00395329 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		920DCC56226BDAFB00395329 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		920DCC58226BDAFB00395329 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		920DCC5D226BDAFB00395329 /* SenioritisTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SenioritisTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		920DCC61226BDAFB00395329 /* SenioritisTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SenioritisTests.swift; sourceTree = "<group>"; };
+		920DCC63226BDAFB00395329 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		920DCC68226BDAFB00395329 /* SenioritisUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SenioritisUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		920DCC6C226BDAFB00395329 /* SenioritisUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SenioritisUITests.swift; sourceTree = "<group>"; };
+		920DCC6E226BDAFB00395329 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		920DCC40226BDAF900395329 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		920DCC5A226BDAFB00395329 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		920DCC65226BDAFB00395329 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		920DCC3A226BDAF900395329 = {
+			isa = PBXGroup;
+			children = (
+				920DCC45226BDAF900395329 /* Senioritis */,
+				920DCC60226BDAFB00395329 /* SenioritisTests */,
+				920DCC6B226BDAFB00395329 /* SenioritisUITests */,
+				920DCC44226BDAF900395329 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		920DCC44226BDAF900395329 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				920DCC43226BDAF900395329 /* Senioritis.app */,
+				920DCC5D226BDAFB00395329 /* SenioritisTests.xctest */,
+				920DCC68226BDAFB00395329 /* SenioritisUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		920DCC45226BDAF900395329 /* Senioritis */ = {
+			isa = PBXGroup;
+			children = (
+				920DCC46226BDAF900395329 /* AppDelegate.swift */,
+				920DCC48226BDAF900395329 /* GameScene.sks */,
+				920DCC4A226BDAF900395329 /* Actions.sks */,
+				920DCC4C226BDAF900395329 /* GameScene.swift */,
+				920DCC4E226BDAF900395329 /* GameViewController.swift */,
+				920DCC50226BDAF900395329 /* Main.storyboard */,
+				920DCC53226BDAFB00395329 /* Assets.xcassets */,
+				920DCC55226BDAFB00395329 /* LaunchScreen.storyboard */,
+				920DCC58226BDAFB00395329 /* Info.plist */,
+			);
+			path = Senioritis;
+			sourceTree = "<group>";
+		};
+		920DCC60226BDAFB00395329 /* SenioritisTests */ = {
+			isa = PBXGroup;
+			children = (
+				920DCC61226BDAFB00395329 /* SenioritisTests.swift */,
+				920DCC63226BDAFB00395329 /* Info.plist */,
+			);
+			path = SenioritisTests;
+			sourceTree = "<group>";
+		};
+		920DCC6B226BDAFB00395329 /* SenioritisUITests */ = {
+			isa = PBXGroup;
+			children = (
+				920DCC6C226BDAFB00395329 /* SenioritisUITests.swift */,
+				920DCC6E226BDAFB00395329 /* Info.plist */,
+			);
+			path = SenioritisUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		920DCC42226BDAF900395329 /* Senioritis */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 920DCC71226BDAFB00395329 /* Build configuration list for PBXNativeTarget "Senioritis" */;
+			buildPhases = (
+				920DCC3F226BDAF900395329 /* Sources */,
+				920DCC40226BDAF900395329 /* Frameworks */,
+				920DCC41226BDAF900395329 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Senioritis;
+			productName = Senioritis;
+			productReference = 920DCC43226BDAF900395329 /* Senioritis.app */;
+			productType = "com.apple.product-type.application";
+		};
+		920DCC5C226BDAFB00395329 /* SenioritisTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 920DCC74226BDAFB00395329 /* Build configuration list for PBXNativeTarget "SenioritisTests" */;
+			buildPhases = (
+				920DCC59226BDAFB00395329 /* Sources */,
+				920DCC5A226BDAFB00395329 /* Frameworks */,
+				920DCC5B226BDAFB00395329 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				920DCC5F226BDAFB00395329 /* PBXTargetDependency */,
+			);
+			name = SenioritisTests;
+			productName = SenioritisTests;
+			productReference = 920DCC5D226BDAFB00395329 /* SenioritisTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		920DCC67226BDAFB00395329 /* SenioritisUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 920DCC77226BDAFB00395329 /* Build configuration list for PBXNativeTarget "SenioritisUITests" */;
+			buildPhases = (
+				920DCC64226BDAFB00395329 /* Sources */,
+				920DCC65226BDAFB00395329 /* Frameworks */,
+				920DCC66226BDAFB00395329 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				920DCC6A226BDAFB00395329 /* PBXTargetDependency */,
+			);
+			name = SenioritisUITests;
+			productName = SenioritisUITests;
+			productReference = 920DCC68226BDAFB00395329 /* SenioritisUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		920DCC3B226BDAF900395329 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1010;
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = Caligure;
+				TargetAttributes = {
+					920DCC42226BDAF900395329 = {
+						CreatedOnToolsVersion = 10.1;
+					};
+					920DCC5C226BDAFB00395329 = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = 920DCC42226BDAF900395329;
+					};
+					920DCC67226BDAFB00395329 = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = 920DCC42226BDAF900395329;
+					};
+				};
+			};
+			buildConfigurationList = 920DCC3E226BDAF900395329 /* Build configuration list for PBXProject "Senioritis" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 920DCC3A226BDAF900395329;
+			productRefGroup = 920DCC44226BDAF900395329 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				920DCC42226BDAF900395329 /* Senioritis */,
+				920DCC5C226BDAFB00395329 /* SenioritisTests */,
+				920DCC67226BDAFB00395329 /* SenioritisUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		920DCC41226BDAF900395329 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				920DCC52226BDAF900395329 /* Main.storyboard in Resources */,
+				920DCC49226BDAF900395329 /* GameScene.sks in Resources */,
+				920DCC54226BDAFB00395329 /* Assets.xcassets in Resources */,
+				920DCC57226BDAFB00395329 /* LaunchScreen.storyboard in Resources */,
+				920DCC4B226BDAF900395329 /* Actions.sks in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		920DCC5B226BDAFB00395329 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		920DCC66226BDAFB00395329 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		920DCC3F226BDAF900395329 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				920DCC4D226BDAF900395329 /* GameScene.swift in Sources */,
+				920DCC4F226BDAF900395329 /* GameViewController.swift in Sources */,
+				920DCC47226BDAF900395329 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		920DCC59226BDAFB00395329 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				920DCC62226BDAFB00395329 /* SenioritisTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		920DCC64226BDAFB00395329 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				920DCC6D226BDAFB00395329 /* SenioritisUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		920DCC5F226BDAFB00395329 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 920DCC42226BDAF900395329 /* Senioritis */;
+			targetProxy = 920DCC5E226BDAFB00395329 /* PBXContainerItemProxy */;
+		};
+		920DCC6A226BDAFB00395329 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 920DCC42226BDAF900395329 /* Senioritis */;
+			targetProxy = 920DCC69226BDAFB00395329 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		920DCC50226BDAF900395329 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				920DCC51226BDAF900395329 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		920DCC55226BDAFB00395329 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				920DCC56226BDAFB00395329 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		920DCC6F226BDAFB00395329 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		920DCC70226BDAFB00395329 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		920DCC72226BDAFB00395329 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = P97S29WM9X;
+				INFOPLIST_FILE = Senioritis/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = acaligu2.Senioritis;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		920DCC73226BDAFB00395329 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = P97S29WM9X;
+				INFOPLIST_FILE = Senioritis/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = acaligu2.Senioritis;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		920DCC75226BDAFB00395329 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = P97S29WM9X;
+				INFOPLIST_FILE = SenioritisTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = acaligu2.SenioritisTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Senioritis.app/Senioritis";
+			};
+			name = Debug;
+		};
+		920DCC76226BDAFB00395329 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = P97S29WM9X;
+				INFOPLIST_FILE = SenioritisTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = acaligu2.SenioritisTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Senioritis.app/Senioritis";
+			};
+			name = Release;
+		};
+		920DCC78226BDAFB00395329 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = P97S29WM9X;
+				INFOPLIST_FILE = SenioritisUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = acaligu2.SenioritisUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Senioritis;
+			};
+			name = Debug;
+		};
+		920DCC79226BDAFB00395329 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = P97S29WM9X;
+				INFOPLIST_FILE = SenioritisUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = acaligu2.SenioritisUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Senioritis;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		920DCC3E226BDAF900395329 /* Build configuration list for PBXProject "Senioritis" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				920DCC6F226BDAFB00395329 /* Debug */,
+				920DCC70226BDAFB00395329 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		920DCC71226BDAFB00395329 /* Build configuration list for PBXNativeTarget "Senioritis" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				920DCC72226BDAFB00395329 /* Debug */,
+				920DCC73226BDAFB00395329 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		920DCC74226BDAFB00395329 /* Build configuration list for PBXNativeTarget "SenioritisTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				920DCC75226BDAFB00395329 /* Debug */,
+				920DCC76226BDAFB00395329 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		920DCC77226BDAFB00395329 /* Build configuration list for PBXNativeTarget "SenioritisUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				920DCC78226BDAFB00395329 /* Debug */,
+				920DCC79226BDAFB00395329 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 920DCC3B226BDAF900395329 /* Project object */;
+}
