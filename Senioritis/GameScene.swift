@@ -11,7 +11,9 @@ import GameplayKit
 
 class GameScene: SKScene {
     
-    let player = SKSpriteNode(imageNamed: "mainCharacterStandard")
+    let player = SKSpriteNode(imageNamed: "character")
+    
+    let jumpSound = SKAction.playSoundFileNamed("jumpS.wav", waitForCompletion: false)
     
     override func didMove(to view: SKView) {
         
@@ -24,12 +26,33 @@ class GameScene: SKScene {
         self.addChild(background)
         
         
-        player.setScale(5)
-        player.position = CGPoint(x: self.size.width * 0.15, y: self.size.height * 0.175)
+        player.setScale(1)
+        player.position = CGPoint(x: self.size.width * 0.45, y: self.size.height * 0.175)
         player.zPosition = 2
         
         self.addChild(player)
         
+        
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+        for touch in touches{
+        
+            if player.contains(touch.location(in: self)){
+                
+                self.run(jumpSound)
+                
+                let jumpUp = SKAction.move(to: CGPoint(x: self.size.width * 0.45, y: self.size.height * 0.5), duration: 0.5)
+                
+                let down = SKAction.move(to: CGPoint(x: self.size.width * 0.45, y: self.size.height * 0.175), duration: 0.5)
+                
+                let jumpSequence = SKAction.sequence([jumpUp, down])
+                player.run(jumpSequence)
+                
+            }
+        
+        }
         
     }
 

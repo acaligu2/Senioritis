@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		92048F2D2272314C00D37502 /* jumpS.wav in Resources */ = {isa = PBXBuildFile; fileRef = 92048F2C2272314C00D37502 /* jumpS.wav */; };
 		920DCC47226BDAF900395329 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920DCC46226BDAF900395329 /* AppDelegate.swift */; };
 		920DCC49226BDAF900395329 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 920DCC48226BDAF900395329 /* GameScene.sks */; };
 		920DCC4B226BDAF900395329 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 920DCC4A226BDAF900395329 /* Actions.sks */; };
@@ -37,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		92048F2C2272314C00D37502 /* jumpS.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = jumpS.wav; sourceTree = "<group>"; };
 		920DCC43226BDAF900395329 /* Senioritis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Senioritis.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		920DCC46226BDAF900395329 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		920DCC48226BDAF900395329 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 				920DCC53226BDAFB00395329 /* Assets.xcassets */,
 				920DCC55226BDAFB00395329 /* LaunchScreen.storyboard */,
 				920DCC58226BDAFB00395329 /* Info.plist */,
+				92048F2C2272314C00D37502 /* jumpS.wav */,
 			);
 			path = Senioritis;
 			sourceTree = "<group>";
@@ -241,6 +244,7 @@
 				920DCC52226BDAF900395329 /* Main.storyboard in Resources */,
 				920DCC49226BDAF900395329 /* GameScene.sks in Resources */,
 				920DCC54226BDAFB00395329 /* Assets.xcassets in Resources */,
+				92048F2D2272314C00D37502 /* jumpS.wav in Resources */,
 				920DCC57226BDAFB00395329 /* LaunchScreen.storyboard in Resources */,
 				920DCC4B226BDAF900395329 /* Actions.sks in Resources */,
 			);
