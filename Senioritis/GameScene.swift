@@ -11,7 +11,22 @@ import GameplayKit
 
 class GameScene: SKScene {
     
+    var frequency = 15
+    
+    var gameOver = false
+    
     let player = SKSpriteNode(imageNamed: "character")
+    
+    let enemies = [
+    
+        SKSpriteNode(imageNamed: "eileen"),
+        SKSpriteNode(imageNamed: "lander"),
+        SKSpriteNode(imageNamed: "bartenstein"),
+        SKSpriteNode(imageNamed: "dmitry"),
+        SKSpriteNode(imageNamed: "madden")
+    
+    ]
+
     
     let jumpSound = SKAction.playSoundFileNamed("jumpS.wav", waitForCompletion: false)
     
@@ -30,8 +45,7 @@ class GameScene: SKScene {
         player.position = CGPoint(x: self.size.width * 0.45, y: self.size.height * 0.175)
         player.zPosition = 2
         
-        self.addChild(player)
-        
+        self.addChild(player)        
         
     }
     
@@ -53,6 +67,11 @@ class GameScene: SKScene {
             }
         
         }
+        
+    }
+    
+    override func update(_ currentTime: TimeInterval) {
+
         
     }
 
