@@ -9,44 +9,81 @@
 import SpriteKit
 import GameplayKit
 
-class GameScene: SKScene {
+struct Physics {
     
-    var frequency = 15
+    static let Enemy : UInt32 = 1
+    static let Character : UInt32 = 2
+    
+}
+
+
+class GameScene: SKScene, SKPhysicsContactDelegate {
+    
+    let names = ["eileen.png", "lander.png", "bartenstein.png", "dmitry.png", "madden.png"]
     
     var gameOver = false
     
     let player = SKSpriteNode(imageNamed: "character")
-    
-    let enemies = [
-    
-        SKSpriteNode(imageNamed: "eileen"),
-        SKSpriteNode(imageNamed: "lander"),
-        SKSpriteNode(imageNamed: "bartenstein"),
-        SKSpriteNode(imageNamed: "dmitry"),
-        SKSpriteNode(imageNamed: "madden")
-    
-    ]
 
     
     let jumpSound = SKAction.playSoundFileNamed("jumpS.wav", waitForCompletion: false)
     
     override func didMove(to view: SKView) {
         
+        NSLog("IS this thing on")
+        
+        physicsWorld.contactDelegate = self
+        
         let background = SKSpriteNode(imageNamed: "background")
         background.setScale(0.1)
         background.size = self.size
         background.position = CGPoint(x: self.size.width/2, y: self.size.height/2)
-        background.zPosition = 0
+        background.zPosition = -1
         
         self.addChild(background)
         
         
         player.setScale(1)
         player.position = CGPoint(x: self.size.width * 0.45, y: self.size.height * 0.175)
-        player.zPosition = 2
         
-        self.addChild(player)        
+        player.physicsBody = SKPhysicsBody(rectangleOf: player.size)
+        player.physicsBody?.affectedByGravity = false
+        player.physicsBody?.categoryBitMask = Physics.Character
+        player.physicsBody?.contactTestBitMask = Physics.Enemy
+        player.physicsBody?.isDynamic = false
+        player.physicsBody?.collisionBitMask = 0
         
+        self.addChild(player)
+        
+        var enemyTimer = Timer.scheduledTimer(timeInterval: 2.5, target: self, selector: #selector(spawnEnemies), userInfo: nil, repeats: true)
+        
+        
+        
+    }
+    
+    func didBegin(_ contact: SKPhysicsContact) {
+        
+        NSLog("Contact")
+        
+        if(contact.bodyA != nil && contact.bodyB != nil){
+        
+            var firstBody : SKPhysicsBody = contact.bodyA
+            var secondBody : SKPhysicsBody = contact.bodyB
+            
+            if(((firstBody.categoryBitMask == Physics.Character) && (secondBody.categoryBitMask == Physics.Enemy)) || ((firstBody.categoryBitMask == Physics.Enemy) && (secondBody.categoryBitMask == Physics.Character))){
+                
+                collisionDetected(Enemy: firstBody.node as! SKSpriteNode, Character: secondBody.node as! SKSpriteNode)
+                
+            }
+            
+        }
+        
+    }
+    
+    func collisionDetected(Enemy: SKSpriteNode, Character: SKSpriteNode){
+    
+        Enemy.removeFromParent()
+    
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -75,4 +112,26 @@ class GameScene: SKScene {
         
     }
 
+    @objc func spawnEnemies(){
+        
+        var name = names.randomElement()!
+        var enemy = SKSpriteNode(imageNamed: name)
+        
+        enemy.position = CGPoint(x: self.size.width + 50, y: self.size.height * 0.175)
+        
+        enemy.physicsBody = SKPhysicsBody(rectangleOf: enemy.size)
+        enemy.physicsBody?.categoryBitMask = Physics.Enemy
+        enemy.physicsBody?.contactTestBitMask = Physics.Character
+        enemy.physicsBody?.affectedByGravity = false
+        enemy.physicsBody?.isDynamic = false
+        enemy.physicsBody?.collisionBitMask = 0
+        
+        let action = SKAction.moveTo(x: -50, duration: 3)
+        let actionDone = SKAction.removeFromParent()
+        enemy.run(SKAction.sequence([action, actionDone]))
+        
+        self.addChild(enemy)
+        
+    }
+    
 }
