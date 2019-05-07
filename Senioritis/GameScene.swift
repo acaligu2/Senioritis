@@ -19,6 +19,24 @@ struct Physics {
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
+    var finishedGame = false
+    
+    var month = "January"
+    var day = 22
+    
+    lazy var scoreLabel: SKLabelNode = {
+        
+        var label = SKLabelNode()
+        label.fontSize = 65.0
+        label.zPosition = 3
+        label.horizontalAlignmentMode = .left
+        label.verticalAlignmentMode = .center
+        label.fontColor = SKColor.black
+        label.text = "\(month) \(day)"
+        return label
+        
+    }()
+    
     let names = ["eileen.png", "lander.png", "bartenstein.png", "dmitry.png", "madden.png"]
     
     var gameOver = false
@@ -30,7 +48,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     override func didMove(to view: SKView) {
         
-        NSLog("IS this thing on")
+        scoreLabel.position = CGPoint(x: self.size.width * 0.30, y: self.size.height * 0.9)
+        
+        self.addChild(scoreLabel)
         
         physicsWorld.contactDelegate = self
         
@@ -46,17 +66,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         player.setScale(1)
         player.position = CGPoint(x: self.size.width * 0.45, y: self.size.height * 0.175)
         
-        player.physicsBody = SKPhysicsBody(rectangleOf: player.size)
+        player.physicsBody = SKPhysicsBody(rectangleOf: CGSize.init(width: 2.0, height: 2.0))
         player.physicsBody?.affectedByGravity = false
         player.physicsBody?.categoryBitMask = Physics.Character
         player.physicsBody?.contactTestBitMask = Physics.Enemy
-        player.physicsBody?.isDynamic = false
+        player.physicsBody?.isDynamic = true
         player.physicsBody?.collisionBitMask = 0
         
         self.addChild(player)
         
-        var enemyTimer = Timer.scheduledTimer(timeInterval: 2.5, target: self, selector: #selector(spawnEnemies), userInfo: nil, repeats: true)
-        
+        _ = Timer.scheduledTimer(timeInterval: 2.5, target: self, selector: #selector(spawnEnemies), userInfo: nil, repeats: true)      
         
         
     }
@@ -65,16 +84,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         NSLog("Contact")
         
-        if(contact.bodyA != nil && contact.bodyB != nil){
+        let firstBody : SKPhysicsBody = contact.bodyA
+        let secondBody : SKPhysicsBody = contact.bodyB
         
-            var firstBody : SKPhysicsBody = contact.bodyA
-            var secondBody : SKPhysicsBody = contact.bodyB
+        if(((firstBody.categoryBitMask == Physics.Character) && (secondBody.categoryBitMask == Physics.Enemy)) || ((firstBody.categoryBitMask == Physics.Enemy) && (secondBody.categoryBitMask == Physics.Character))){
             
-            if(((firstBody.categoryBitMask == Physics.Character) && (secondBody.categoryBitMask == Physics.Enemy)) || ((firstBody.categoryBitMask == Physics.Enemy) && (secondBody.categoryBitMask == Physics.Character))){
-                
-                collisionDetected(Enemy: firstBody.node as! SKSpriteNode, Character: secondBody.node as! SKSpriteNode)
-                
-            }
+            collisionDetected(Enemy: firstBody.node as! SKSpriteNode, Character: secondBody.node as! SKSpriteNode)
             
         }
         
@@ -82,7 +97,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func collisionDetected(Enemy: SKSpriteNode, Character: SKSpriteNode){
     
-        Enemy.removeFromParent()
+        NSLog("Detected")
     
     }
     
@@ -108,14 +123,20 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     override func update(_ currentTime: TimeInterval) {
+        
+        if(finishedGame){
+            
+            NSLog("We made it")
+            
+        }
 
         
     }
 
     @objc func spawnEnemies(){
         
-        var name = names.randomElement()!
-        var enemy = SKSpriteNode(imageNamed: name)
+        let name = names.randomElement()!
+        let enemy = SKSpriteNode(imageNamed: name)
         
         enemy.position = CGPoint(x: self.size.width + 50, y: self.size.height * 0.175)
         
@@ -123,14 +144,57 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         enemy.physicsBody?.categoryBitMask = Physics.Enemy
         enemy.physicsBody?.contactTestBitMask = Physics.Character
         enemy.physicsBody?.affectedByGravity = false
-        enemy.physicsBody?.isDynamic = false
+        enemy.physicsBody?.isDynamic = true
         enemy.physicsBody?.collisionBitMask = 0
         
         let action = SKAction.moveTo(x: -50, duration: 3)
         let actionDone = SKAction.removeFromParent()
-        enemy.run(SKAction.sequence([action, actionDone]))
+        
+        let increment = SKAction.run {
+            self.day += 1
+            
+            if(self.day == 32 && self.month == "January"){
+                
+                self.month = "February"
+                self.day = 1
+                
+            }
+            
+            if(self.day == 29 && self.month == "February"){
+                
+                self.month = "March"
+                self.day = 1
+                
+            }
+            
+            if(self.day == 32 && self.month == "March"){
+                
+                self.month = "April"
+                self.day = 1
+                
+            }
+            
+            if(self.day == 31 && self.month == "April"){
+                
+                self.month = "May"
+                self.day = 1
+                
+            }
+            
+            if(self.day == 10 && self.month == "May"){
+                
+                self.finishedGame = true
+                
+            }
+            
+            self.scoreLabel.text = "\(self.month) \(self.day)"
+            
+        }
+        
+        enemy.run(SKAction.sequence([action, actionDone,increment]))
         
         self.addChild(enemy)
+    
         
     }
     
