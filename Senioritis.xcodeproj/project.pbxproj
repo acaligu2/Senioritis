@@ -18,6 +18,7 @@
 		920DCC57226BDAFB00395329 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 920DCC55226BDAFB00395329 /* LaunchScreen.storyboard */; };
 		920DCC62226BDAFB00395329 /* SenioritisTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920DCC61226BDAFB00395329 /* SenioritisTests.swift */; };
 		920DCC6D226BDAFB00395329 /* SenioritisUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920DCC6C226BDAFB00395329 /* SenioritisUITests.swift */; };
+		928CD90822831A98004C3EC2 /* damage.wav in Resources */ = {isa = PBXBuildFile; fileRef = 928CD90722831A98004C3EC2 /* damage.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		920DCC68226BDAFB00395329 /* SenioritisUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SenioritisUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		920DCC6C226BDAFB00395329 /* SenioritisUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SenioritisUITests.swift; sourceTree = "<group>"; };
 		920DCC6E226BDAFB00395329 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		928CD90722831A98004C3EC2 /* damage.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = damage.wav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 				920DCC55226BDAFB00395329 /* LaunchScreen.storyboard */,
 				920DCC58226BDAFB00395329 /* Info.plist */,
 				92048F2C2272314C00D37502 /* jumpS.wav */,
+				928CD90722831A98004C3EC2 /* damage.wav */,
 			);
 			path = Senioritis;
 			sourceTree = "<group>";
@@ -241,6 +244,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				928CD90822831A98004C3EC2 /* damage.wav in Resources */,
 				920DCC52226BDAF900395329 /* Main.storyboard in Resources */,
 				920DCC49226BDAF900395329 /* GameScene.sks in Resources */,
 				920DCC54226BDAFB00395329 /* Assets.xcassets in Resources */,
