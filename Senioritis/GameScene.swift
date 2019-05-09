@@ -26,11 +26,14 @@ struct Physics {
     
     static let Enemy : UInt32 = 1
     static let Character : UInt32 = 2
+    static let enemyProj : UInt32 = 3
     
 }
 
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
+    
+    var frequency = 2.5
     
     var finishedGame = false
     var started = false
@@ -71,6 +74,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }()
     
     let names = ["eileen.png", "lander.png", "bartenstein.png", "dmitry.png", "madden.png"]
+    let projectiles = ["pencil.png", "paper.png"]
     
     var gameOver = false
     
@@ -104,10 +108,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         player.setScale(1)
         player.position = CGPoint(x: self.size.width * 0.45, y: self.size.height * 0.175)
         
-        player.physicsBody = SKPhysicsBody(rectangleOf: CGSize.init(width: 8.0, height: 8.0))
+        player.physicsBody = SKPhysicsBody(rectangleOf: CGSize.init(width: 10.0, height: 10.0))
         player.physicsBody?.affectedByGravity = false
         player.physicsBody?.categoryBitMask = Physics.Character
         player.physicsBody?.contactTestBitMask = Physics.Enemy
+        player.physicsBody?.contactTestBitMask = Physics.enemyProj
         player.physicsBody?.isDynamic = true
         player.physicsBody?.collisionBitMask = 0
         
@@ -120,18 +125,22 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         started = true
         
-        enemyTimer = Timer.scheduledTimer(timeInterval: 2.5, target: self, selector: #selector(spawnEnemies), userInfo: nil, repeats: true)
+        enemyTimer = Timer.scheduledTimer(timeInterval: frequency, target: self, selector: #selector(spawnEnemies), userInfo: nil, repeats: true)
         
     }
     
     func didBegin(_ contact: SKPhysicsContact) {
         
-        NSLog("Contact")
-        
         let firstBody : SKPhysicsBody = contact.bodyA
         let secondBody : SKPhysicsBody = contact.bodyB
         
         if(((firstBody.categoryBitMask == Physics.Character) && (secondBody.categoryBitMask == Physics.Enemy)) || ((firstBody.categoryBitMask == Physics.Enemy) && (secondBody.categoryBitMask == Physics.Character))){
+            
+            collisionDetected(Enemy: firstBody.node as! SKSpriteNode, Character: secondBody.node as! SKSpriteNode)
+            
+        }
+        
+        if(((firstBody.categoryBitMask == Physics.Character) && (secondBody.categoryBitMask == Physics.enemyProj)) || ((firstBody.categoryBitMask == Physics.enemyProj) && (secondBody.categoryBitMask == Physics.Character))){
             
             collisionDetected(Enemy: firstBody.node as! SKSpriteNode, Character: secondBody.node as! SKSpriteNode)
             
@@ -191,7 +200,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         if(finishedGame){
             
-            NSLog("We made it")
+            gameOver = true
+            scoreLabel.text = "YOU WIN"
+            
+            missesLabel.fontColor = SKColor.black
+            missesLabel.text = "YOU SURVIVED SENIOR YEAR"
+            enemyTimer?.invalidate()
             
         }
         
@@ -214,27 +228,53 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let name = names.randomElement()!
         let enemy = SKSpriteNode(imageNamed: name)
         
-        enemy.position = CGPoint(x: self.size.width + 50, y: self.size.height * 0.175)
+        let pName = projectiles.randomElement()!
+        let enemyProj = SKSpriteNode(imageNamed:pName)
         
-        enemy.physicsBody = SKPhysicsBody(rectangleOf: CGSize.init(width: 8.0, height: 8.0))
+        let startPos = CGFloat(arc4random_uniform(100) + 10)
+        
+        enemy.position = CGPoint(x: self.size.width + startPos, y: self.size.height * 0.175)
+        
+        enemy.physicsBody = SKPhysicsBody(rectangleOf: CGSize.init(width: 10.0, height: 10.0))
         enemy.physicsBody?.categoryBitMask = Physics.Enemy
         enemy.physicsBody?.contactTestBitMask = Physics.Character
         enemy.physicsBody?.affectedByGravity = false
         enemy.physicsBody?.isDynamic = true
         enemy.physicsBody?.collisionBitMask = 0
         
+        enemyProj.position = enemy.position
+        
+        enemyProj.physicsBody = SKPhysicsBody(rectangleOf: enemyProj.size)
+        enemyProj.physicsBody?.categoryBitMask = Physics.enemyProj
+        enemyProj.physicsBody?.contactTestBitMask = Physics.Character
+        enemyProj.physicsBody?.affectedByGravity = false
+        enemyProj.physicsBody?.isDynamic = true
+        enemyProj.physicsBody?.collisionBitMask = 0
+        
+        let enemyProjAction = SKAction.moveTo(x: -50, duration: 2)
+        
+        let enemyProjShoot = SKAction.repeat(enemyProjAction, count: 2)
+        
+        let enemyProjSeq = SKAction.sequence([enemyProjShoot])
+        
+        //Run across the screen
         let action = SKAction.moveTo(x: -50, duration: 3)
         
+        //Jump up and down
         let jumpUp = SKAction.moveTo(y: self.size.height * 0.5, duration: 0.5)
         
         let down = SKAction.moveTo(y: self.size.height * 0.175, duration: 0.5)
         
-        let jumpSequence = SKAction.repeatForever(SKAction.sequence([jumpUp, down]))
+        let jumpSequence = SKAction.repeat(SKAction.sequence([jumpUp, down]), count: 3)
         
+        
+        //Runa and jump at the same time
         let group = SKAction.group([action, jumpSequence])
         
+        //Remove sprite
         let actionDone = SKAction.removeFromParent()
         
+        //Increment the score
         let increment = SKAction.run {
             self.day += 1
             
@@ -242,6 +282,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 
                 self.month = "February"
                 self.day = 1
+                self.enemyTimer?.invalidate()
+                self.enemyTimer = Timer.scheduledTimer(timeInterval: self.frequency * 0.75, target: self, selector: #selector(self.spawnEnemies), userInfo: nil, repeats: true)
                 
             }
             
@@ -249,6 +291,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 
                 self.month = "March"
                 self.day = 1
+                self.enemyTimer?.invalidate()
+                self.enemyTimer = Timer.scheduledTimer(timeInterval: self.frequency * 0.75, target: self, selector: #selector(self.spawnEnemies), userInfo: nil, repeats: true)
                 
             }
             
@@ -256,6 +300,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 
                 self.month = "April"
                 self.day = 1
+                self.enemyTimer?.invalidate()
+                self.enemyTimer = Timer.scheduledTimer(timeInterval: self.frequency * 0.75, target: self, selector: #selector(self.spawnEnemies), userInfo: nil, repeats: true)
                 
             }
             
@@ -263,6 +309,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 
                 self.month = "May"
                 self.day = 1
+                self.enemyTimer?.invalidate()
+                self.enemyTimer = Timer.scheduledTimer(timeInterval: self.frequency * 0.75, target: self, selector: #selector(self.spawnEnemies), userInfo: nil, repeats: true)
                 
             }
             
@@ -276,7 +324,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
         }
         
-        enemy.run(SKAction.sequence([group, actionDone,increment]))
+       let enemyJump = SKAction.sequence([group, actionDone,increment])
+        
+        let enemyRun = SKAction.sequence([action, actionDone, increment])
+        
+        let runOptions = [enemyJump, enemyRun]
+        
+        enemy.run(runOptions.randomElement()!)
+        let val = Int(arc4random_uniform(100))
+        
+        if(val >= 25 && val < 75){
+            enemyProj.run(enemyProjSeq)
+            self.addChild(enemyProj)
+        }
         
         self.addChild(enemy)
     
