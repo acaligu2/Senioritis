@@ -2,6 +2,8 @@
 
 iOS game developed in Xcode using Swift
 
+App Demo: https://youtu.be/W1WJhW5cLbw
+
 Graduation is in sight! Dodge your professors and their busy work and hope you make it to commencement
 
 The goal is to avoid any professors/work, each passing professor represents a day in the spring semester.
